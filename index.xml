@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>0xHyp3rion Blog</title>
+    <link>https://0xHyp3rion.github.io/</link>
+    <description>Recent content on 0xHyp3rion Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 07 Oct 2024 20:53:26 -0500</lastBuildDate><atom:link href="https://0xHyp3rion.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CTI Homelab Series - Introduction</title>
+      <link>https://0xHyp3rion.github.io/posts/cti-homelab-series-0/</link>
+      <pubDate>Mon, 07 Oct 2024 20:53:26 -0500</pubDate>
+      
+      <guid>https://0xHyp3rion.github.io/posts/cti-homelab-series-0/</guid>
+      <description>Prologue I&amp;rsquo;m going to go out on a limb and state that Cyber Threat Intelligence (CTI) is one of the hardest domains within Cybersecurity to get into, let alone understand. Heck, what even is CTI anyway? How does it tie into the rest of Cybersecurity? What does it take to become a CTI Analyst? How do I become one? This blog series is intended for those who have an interest in learning more about CTI or who would like some hands-on projects to sink their teeth into to develop their skillset.</description>
+    </item>
+    
+  </channel>
+</rss>
