@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> CTI Homelab Series - 1.1 Planning, Objectives, and Direction | 0xHyp3rion Blog</title>
+  <link rel = 'canonical' href = 'https://0xHyp3rion.github.io/posts/cti-homelab-series-1-1/'>
+  <meta name="description" content="Musings on Cybersecurity, Threat Intelligence, and more.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="CTI Homelab Series - 1.1 Planning, Objectives, and Direction" />
+<meta property="og:description" content="Note This is part 1 of a two-part series on Planning, Objectives, and Direction. PIRs and collection planning will be detailed in 1.2. Resources Required: Something to take notes with. Objectives: Develop stakeholder interviews (1.1) Identify &ldquo;crown jewels&rdquo; (1.1) Develop and rank Priority Intelligence Requirements (PIRs) (1.2) Determine collection methods and strategies (1.2) Scenario The CEO has decided that with the changing threat landscape, it&rsquo;s time to dedicate time, effort, and energy to adapting to the times and creating a digital security culture for the organization." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://0xHyp3rion.github.io/posts/cti-homelab-series-1-1/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-10-07T21:44:45-05:00" />
+<meta property="article:modified_time" content="2024-10-07T21:44:45-05:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CTI Homelab Series - 1.1 Planning, Objectives, and Direction"/>
+<meta name="twitter:description" content="Note This is part 1 of a two-part series on Planning, Objectives, and Direction. PIRs and collection planning will be detailed in 1.2. Resources Required: Something to take notes with. Objectives: Develop stakeholder interviews (1.1) Identify &ldquo;crown jewels&rdquo; (1.1) Develop and rank Priority Intelligence Requirements (PIRs) (1.2) Determine collection methods and strategies (1.2) Scenario The CEO has decided that with the changing threat landscape, it&rsquo;s time to dedicate time, effort, and energy to adapting to the times and creating a digital security culture for the organization."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://0xHyp3rion.github.io/css/styles.c05d68261bf086a9d7713c4f8a6215a3601608e267a816a7ee58f139b3d1aae51222aae2081c8e0c6bd35e1334773b7a16283022f31f92afd93bb37e5e822e66.css" integrity="sha512-wF1oJhvwhqnXcTxPimIVo2AWCOJnqBan7ljxObPRquUSIqriCByODGvTXhM0dzt6FigwIvMfkq/ZO7N&#43;XoIuZg=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://0xHyp3rion.github.io/images/favicon.ico" />
+
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">All posts</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://0xHyp3rion.github.io/posts/cti-homelab-series-0/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2f0xHyp3rion.github.io%2fposts%2fcti-homelab-series-1-1%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2f0xHyp3rion.github.io%2fposts%2fcti-homelab-series-1-1%2f&text=CTI%20Homelab%20Series%20-%201.1%20Planning%2c%20Objectives%2c%20and%20Direction" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2f0xHyp3rion.github.io%2fposts%2fcti-homelab-series-1-1%2f&title=CTI%20Homelab%20Series%20-%201.1%20Planning%2c%20Objectives%2c%20and%20Direction" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2f0xHyp3rion.github.io%2fposts%2fcti-homelab-series-1-1%2f&is_video=false&description=CTI%20Homelab%20Series%20-%201.1%20Planning%2c%20Objectives%2c%20and%20Direction" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=CTI%20Homelab%20Series%20-%201.1%20Planning%2c%20Objectives%2c%20and%20Direction&body=Check out this article: https%3a%2f%2f0xHyp3rion.github.io%2fposts%2fcti-homelab-series-1-1%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2f0xHyp3rion.github.io%2fposts%2fcti-homelab-series-1-1%2f&title=CTI%20Homelab%20Series%20-%201.1%20Planning%2c%20Objectives%2c%20and%20Direction" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2f0xHyp3rion.github.io%2fposts%2fcti-homelab-series-1-1%2f&title=CTI%20Homelab%20Series%20-%201.1%20Planning%2c%20Objectives%2c%20and%20Direction" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2f0xHyp3rion.github.io%2fposts%2fcti-homelab-series-1-1%2f&name=CTI%20Homelab%20Series%20-%201.1%20Planning%2c%20Objectives%2c%20and%20Direction&description=Note%20This%20is%20part%201%20of%20a%20two-part%20series%20on%20Planning%2c%20Objectives%2c%20and%20Direction.%20PIRs%20and%20collection%20planning%20will%20be%20detailed%20in%201.2.%20Resources%20Required%3a%20Something%20to%20take%20notes%20with.%20Objectives%3a%20Develop%20stakeholder%20interviews%20%281.1%29%20Identify%20%26ldquo%3bcrown%20jewels%26rdquo%3b%20%281.1%29%20Develop%20and%20rank%20Priority%20Intelligence%20Requirements%20%28PIRs%29%20%281.2%29%20Determine%20collection%20methods%20and%20strategies%20%281.2%29%20Scenario%20The%20CEO%20has%20decided%20that%20with%20the%20changing%20threat%20landscape%2c%20it%26rsquo%3bs%20time%20to%20dedicate%20time%2c%20effort%2c%20and%20energy%20to%20adapting%20to%20the%20times%20and%20creating%20a%20digital%20security%20culture%20for%20the%20organization." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2f0xHyp3rion.github.io%2fposts%2fcti-homelab-series-1-1%2f&t=CTI%20Homelab%20Series%20-%201.1%20Planning%2c%20Objectives%2c%20and%20Direction" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#note">Note</a></li>
+    <li><a href="#resources-required">Resources Required:</a></li>
+    <li><a href="#objectives">Objectives:</a></li>
+    <li><a href="#scenario">Scenario</a>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+      </ul>
+    </li>
+    <li><a href="#exercise">Exercise</a></li>
+    <li><a href="#real-world-application-stakeholder-interviews">Real World Application: Stakeholder Interviews</a></li>
+    <li><a href="#example">Example</a></li>
+  </ul>
+</nav>
+    </div>
+    
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        CTI Homelab Series - 1.1 Planning, Objectives, and Direction
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2024-10-07 21:44:45 -0500 CDT" itemprop="datePublished">2024-10-07</time>
+          
+        </div>
+        
+        
+        
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <h2 id="note">Note</h2>
+<ul>
+<li>This is part 1 of a two-part series on Planning, Objectives, and Direction. PIRs and collection planning will be detailed in 1.2.</li>
+</ul>
+<h2 id="resources-required">Resources Required:</h2>
+<ul>
+<li>Something to take notes with.</li>
+</ul>
+<h2 id="objectives">Objectives:</h2>
+<ul>
+<li>Develop stakeholder interviews (1.1)</li>
+<li>Identify &ldquo;crown jewels&rdquo; (1.1)</li>
+<li>Develop and rank Priority Intelligence Requirements (PIRs) (1.2)</li>
+<li>Determine collection methods and strategies (1.2)</li>
+</ul>
+<h2 id="scenario">Scenario</h2>
+<p>The CEO has decided that with the changing threat landscape, it&rsquo;s time to dedicate time, effort, and energy to adapting to the times and creating a digital security culture for the organization. The CEO has appropriated funding in the budget so that you, the CTI Analyst, can have an opportunity to show what you&rsquo;re made of. The Security Manager wants you to begin identifying cyber threats to CBR Corp and propose mitigation strategies to make the environment more secure and reduce risk.</p>
+<h3 id="introduction">Introduction</h3>
+<p>The Planning, Objectives, and Direction phase of the intelligence cycle is, perhaps, the most important. The old axiom &ldquo;Know Thyself&rdquo; applies on a strategic scale. You have to know what you have that needs to be protected in order to start developing an understanding of the risks that exist against it.</p>
+<h2 id="exercise">Exercise</h2>
+<ol>
+<li>Identify the digital assets within your environment that are connected to your home network.</li>
+<li>Determine which assets are most important to you. These will be considered your crown jewels.
+<ol>
+<li>Which ones hold data that is meaningful or valuable to you? (Integrity)</li>
+<li>Are there devices that need to be online more than others? (Availability)</li>
+<li>Are there devices that hold data you don&rsquo;t want others to see? (Confidentiality)</li>
+</ol>
+</li>
+<li>Determine the firmware and software present on these devices.</li>
+<li>Determine who has access to these devices, and the permissions they have on each device.</li>
+<li>Determine which of these devices have direct exposure to the internet.</li>
+</ol>
+<p>I can hear some of you already: &ldquo;Wait, hold on. What the heck does any of this have to do with CTI, anyway? Why am I wasting my time writing down things I already know I have?&rdquo;</p>
+<p>You&rsquo;d be amazed at how many breaches occur as a result of one piece of network-connected hardware that a company forgot about, or didn&rsquo;t think was relevant. Or a disgruntled ex-employee who got fired but nobody revoked their admin permissions. Don&rsquo;t worry, it will all make sense the further along we go.</p>
+<h2 id="real-world-application-stakeholder-interviews">Real World Application: Stakeholder Interviews</h2>
+<p>In the real world, this process would be conducted by having meetings with various stakeholders and teams across departments within an organization. These have a multifaceted purpose including building rapport between teams and the Cybersecurity team, staying up to date with what&rsquo;s going on within an organization (which could lead to more intel), and having knowledge of any changes occurring that could impact the information security posture of the organization. These interviews should be conducted face-to-face with the leaders of teams whenever possible; but having them fill out a questionnaire can also work when there are time, availability, or other bureaucratic constraints.</p>
+<p>The questions should be open-ended so that the stakeholder can do the majority of the talking. As they&rsquo;re talking, it&rsquo;s a good idea to take copious notes which you can then process and categorize the key points and themes from the notes gleaned off of the stakeholder feedback.</p>
+<p>Good interview questions need to be tailored according to the team you&rsquo;re interviewing, but ultimately some good ones can go like this:</p>
+<ul>
+<li>Elaborate on previous cyber attacks. What was targeted? How far did they get? How did the response go?</li>
+<li>What kind of data are you trying to protect?</li>
+<li>What devices contain this data?</li>
+<li>Which employees have access to this data?</li>
+<li>What type of software is used within your team?</li>
+<li>What type of hardware is used within your team?</li>
+<li>Where do you source new hardware and software?</li>
+<li>How do you stay on top of cybersecurity news?</li>
+<li>How are these devices secured?</li>
+</ul>
+<h2 id="example">Example</h2>
+<p>To illustrate this, I&rsquo;ll detail a little bit about what I&rsquo;ve got going on with my own home network. I&rsquo;m not going to go into detail about the hardware just because, at the end of the day, this is the internet and I&rsquo;m trying to be cool by being incognito.</p>
+<ul>
+<li>1x cheap mini-PC that I ordered on Amazon (I know what you&rsquo;re thinking, and yes I took steps to lock it down and wipe it clean) and refurbished to be a firewall with OPNSense as a firewall</li>
+<li>1x old laptop with Proxmox installed.</li>
+<li>1x new laptop with Windows 11 and Arch Linux dual-boot</li>
+<li>1x desktop PC with Parrot OS</li>
+<li>1x cell phone</li>
+<li>1x work laptop with Windows 11</li>
+<li>1x gaming console</li>
+<li>1x wireless access point, which is hardwired to the firewall</li>
+<li>1x router/gateway issued by the devil himself, otherwise known as my ISP</li>
+</ul>
+<p>All devices are hardwired, with the exception of my cell phone and new laptop.</p>
+<p>I do most of my work through web browsers (Chrome for work, Firefox for personal), utilize Microsoft Office desktop applications, Discord, and occasionally, Steam. Most of my important data is stored on my personal laptop. My homelab is on my Proxmox server, which is also important because it took me time to build and deploy. My phone has most of its data backed up to the cloud.</p>
+<p>From all of this, we can reasonably deduce that the biggest threats facing me and my home network are any vulnerabilities affecting OPNSense, phishing emails or malicious Office documents, and downloading malicious files via Discord. I&rsquo;m additionally concerned about any vulnerable listening services on my OPNSense firewall that would allow an attacker initial access into my network.</p>
+<p>Now, I&rsquo;m thankfully very immune to social engineering tactics and phishing thanks to being a security practitioner, and I have my firewall configured to the point that it&rsquo;s on extremely tight lockdown, but we&rsquo;re all human, and with every interaction with the internet, there&rsquo;s some element of risk, which will never entirely be at 0.</p>
+<p>Additionally, I&rsquo;m concerned about attackers specifically targeting OPNSense firewalls and routers.</p>
+<p>This is enough information to start building Priority Intelligence Requirements, or PIRs, which will be covered in part 1.2</p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">All posts</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#note">Note</a></li>
+    <li><a href="#resources-required">Resources Required:</a></li>
+    <li><a href="#objectives">Objectives:</a></li>
+    <li><a href="#scenario">Scenario</a>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+      </ul>
+    </li>
+    <li><a href="#exercise">Exercise</a></li>
+    <li><a href="#real-world-application-stakeholder-interviews">Real World Application: Stakeholder Interviews</a></li>
+    <li><a href="#example">Example</a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2f0xHyp3rion.github.io%2fposts%2fcti-homelab-series-1-1%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2f0xHyp3rion.github.io%2fposts%2fcti-homelab-series-1-1%2f&text=CTI%20Homelab%20Series%20-%201.1%20Planning%2c%20Objectives%2c%20and%20Direction" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2f0xHyp3rion.github.io%2fposts%2fcti-homelab-series-1-1%2f&title=CTI%20Homelab%20Series%20-%201.1%20Planning%2c%20Objectives%2c%20and%20Direction" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2f0xHyp3rion.github.io%2fposts%2fcti-homelab-series-1-1%2f&is_video=false&description=CTI%20Homelab%20Series%20-%201.1%20Planning%2c%20Objectives%2c%20and%20Direction" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=CTI%20Homelab%20Series%20-%201.1%20Planning%2c%20Objectives%2c%20and%20Direction&body=Check out this article: https%3a%2f%2f0xHyp3rion.github.io%2fposts%2fcti-homelab-series-1-1%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2f0xHyp3rion.github.io%2fposts%2fcti-homelab-series-1-1%2f&title=CTI%20Homelab%20Series%20-%201.1%20Planning%2c%20Objectives%2c%20and%20Direction" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2f0xHyp3rion.github.io%2fposts%2fcti-homelab-series-1-1%2f&title=CTI%20Homelab%20Series%20-%201.1%20Planning%2c%20Objectives%2c%20and%20Direction" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2f0xHyp3rion.github.io%2fposts%2fcti-homelab-series-1-1%2f&name=CTI%20Homelab%20Series%20-%201.1%20Planning%2c%20Objectives%2c%20and%20Direction&description=Note%20This%20is%20part%201%20of%20a%20two-part%20series%20on%20Planning%2c%20Objectives%2c%20and%20Direction.%20PIRs%20and%20collection%20planning%20will%20be%20detailed%20in%201.2.%20Resources%20Required%3a%20Something%20to%20take%20notes%20with.%20Objectives%3a%20Develop%20stakeholder%20interviews%20%281.1%29%20Identify%20%26ldquo%3bcrown%20jewels%26rdquo%3b%20%281.1%29%20Develop%20and%20rank%20Priority%20Intelligence%20Requirements%20%28PIRs%29%20%281.2%29%20Determine%20collection%20methods%20and%20strategies%20%281.2%29%20Scenario%20The%20CEO%20has%20decided%20that%20with%20the%20changing%20threat%20landscape%2c%20it%26rsquo%3bs%20time%20to%20dedicate%20time%2c%20effort%2c%20and%20energy%20to%20adapting%20to%20the%20times%20and%20creating%20a%20digital%20security%20culture%20for%20the%20organization." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2f0xHyp3rion.github.io%2fposts%2fcti-homelab-series-1-1%2f&t=CTI%20Homelab%20Series%20-%201.1%20Planning%2c%20Objectives%2c%20and%20Direction" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2024  0xHyp3rion Blog 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">All posts</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+
+</html>

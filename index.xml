@@ -6,7 +6,16 @@
     <description>Recent content on 0xHyp3rion Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 Oct 2024 20:53:26 -0500</lastBuildDate><atom:link href="https://0xHyp3rion.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Oct 2024 21:44:45 -0500</lastBuildDate><atom:link href="https://0xHyp3rion.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CTI Homelab Series - 1.1 Planning, Objectives, and Direction</title>
+      <link>https://0xHyp3rion.github.io/posts/cti-homelab-series-1-1/</link>
+      <pubDate>Mon, 07 Oct 2024 21:44:45 -0500</pubDate>
+      
+      <guid>https://0xHyp3rion.github.io/posts/cti-homelab-series-1-1/</guid>
+      <description>Note This is part 1 of a two-part series on Planning, Objectives, and Direction. PIRs and collection planning will be detailed in 1.2. Resources Required: Something to take notes with. Objectives: Develop stakeholder interviews (1.1) Identify &amp;ldquo;crown jewels&amp;rdquo; (1.1) Develop and rank Priority Intelligence Requirements (PIRs) (1.2) Determine collection methods and strategies (1.2) Scenario The CEO has decided that with the changing threat landscape, it&amp;rsquo;s time to dedicate time, effort, and energy to adapting to the times and creating a digital security culture for the organization.</description>
+    </item>
+    
     <item>
       <title>CTI Homelab Series - Introduction</title>
       <link>https://0xHyp3rion.github.io/posts/cti-homelab-series-0/</link>
